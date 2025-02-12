@@ -18,8 +18,7 @@ class _HomeScreenState extends State<HomeScreen>
   late CategoryModel _category;
   late TabController _tabController;
 
-  // Map to store futures for each news source
-  // final Map<int, Future<List<NewsArticle>>> _newsSourceFutures = {};
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +61,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // Get the category passed from previous screen
     
     _category = ModalRoute.of(context)!.settings.arguments as CategoryModel;
   }
@@ -82,18 +80,14 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
 
-    // Initialize TabController
     _tabController = TabController(length: dummySources.length, vsync: this);
 
-    // Add listener to fetch news when tab changes
     _tabController.addListener(() {
       if (!_tabController.indexIsChanging) {
-        // Fetch news for the current tab
         _fetchNewsForCurrentTab();
       }
     });
 
-    // Fetch initial news for the first tab
     _fetchNewsForCurrentTab();
   }
 
@@ -101,6 +95,5 @@ class _HomeScreenState extends State<HomeScreen>
     setState(() {
       fetchNewsForSource(sourceIndex: _tabController.index);
     });
-    // Check if we already have a future for this source
   }
 }
