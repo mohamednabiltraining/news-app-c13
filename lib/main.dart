@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app_c13/api/ApiManager.dart';
 import 'package:news_app_c13/core/app_theme.dart';
 import 'package:news_app_c13/ui/screens/categories_screen.dart';
-import 'package:news_app_c13/ui/screens/home_screen.dart';
+import 'package:news_app_c13/ui/screens/home/home_screen.dart';
 
 void main() {
   runApp(const MainApp());
